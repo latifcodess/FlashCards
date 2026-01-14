@@ -37,6 +37,16 @@
       "status": "Done",
       "author": "latifcodess",
       "patch": true
+    },
+    {
+      "id": "5983b153-22f8-4cdb-83ae-04849747dd8b",
+      "type": "commitless",
+      "name": "Aide",
+      "description": "J'ai un peu aidé carl car il n'avait pas compris que il devait aller prendre le index.html dans le repo donné dans le doc de la premiere étape",
+      "date": "2026-01-14T15:05:00.000Z",
+      "duration": 10,
+      "status": "Done",
+      "author": "latifcodess"
     }
   ]
 }
