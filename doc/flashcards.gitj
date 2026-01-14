@@ -4,5 +4,26 @@
   "branch": "main",
   "me": "latifcodess",
   "journalStartDate": null,
-  "exceptions": []
+  "exceptions": [
+    {
+      "id": "291ff3bd-06de-4a99-bf69-ecba11e44531",
+      "type": "commitless",
+      "name": "kickoff",
+      "description": "Mr. Carrel nous à introduit au P_BULLE, nous a montré comment mettre en place adonis js et nous a expliqué beaucoup de chose",
+      "date": "2026-01-14T13:36:00.000Z",
+      "duration": 120,
+      "status": "Done",
+      "author": "latifcodess"
+    },
+    {
+      "id": "ed9f1e10-efa1-48b8-ba7a-b54ccafa162d",
+      "type": "commitless",
+      "name": "Ajout éxercice",
+      "description": "J'ai ajouté l'exercice en adonisjs app-teachers dans mon repo (je met la tache comme sa car je n'ai pas mis le temps dans le commit donc il ne s'affiche ici)",
+      "date": "2026-01-14T14:42",
+      "duration": 10,
+      "status": "Done",
+      "author": "latifcodess"
+    }
+  ]
 }
