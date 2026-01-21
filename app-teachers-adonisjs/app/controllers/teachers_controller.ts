@@ -1,6 +1,5 @@
 import Teacher from '#models/teacher'
 import type { HttpContext } from '@adonisjs/core/http'
-import { dd } from '@adonisjs/core/services/dumper'
 
 export default class TeachersController {
   /**
@@ -28,7 +27,11 @@ export default class TeachersController {
   /**
    * Show individual record
    */
-  async show({ params }: HttpContext) {}
+  async show({ params, view }: HttpContext) {
+    const teacher = await Teacher.query().where('id', params.id).preload('section').firstOrFail()
+
+    return view.render('pages/teachers/show.edge', {title: "Détails d'un enseignant", teacher})
+  }
 
   /**
    * Edit individual record
