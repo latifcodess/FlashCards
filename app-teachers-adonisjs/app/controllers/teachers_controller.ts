@@ -60,5 +60,13 @@ export default class TeachersController {
   /**
    * Delete record
    */
-  async destroy({ params }: HttpContext) {}
+  async destroy({ params, session, response }: HttpContext) {
+    const teacher = await Teacher.findOrFail(params.id)
+
+    await teacher.delete()
+
+    session.flash('success', `L'enseignant ${teacher.lastname} ${teacher.firstname} a été supprimé avecsuccès !`)
+
+    return response.redirect().toRoute('home')
+  }
 }
