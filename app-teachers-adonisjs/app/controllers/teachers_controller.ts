@@ -1,4 +1,6 @@
+import Section from '#models/section'
 import Teacher from '#models/teacher'
+import { teacherValidator } from '#validators/teacher'
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class TeachersController {
@@ -17,12 +19,24 @@ export default class TeachersController {
   /**
    * Display form to create a new record
    */
-  async create({}: HttpContext) {}
+  async create({ view }: HttpContext) {
+    const section = await Section.query().orderBy('name', 'asc')
+
+    return view.render('pages/teachers/create', {title: "Ajout d'un enseignant"})
+  }
 
   /**
    * Handle form submission for the create action
    */
-  async store({ request }: HttpContext) {}
+  async store({ request, session, response }: HttpContext) {
+    const {gender, firstname, lastname, nickname, origine, sectionId} = await request.validateUsing(teacherValidator)
+
+    const teacher = await Teacher.create({gender, firstname, lastname, nickname, origine, sectionId})
+
+    session.flash('success', `Le nouvel enseignant ${teacher.lastname} ${teacher.firstname} a été ajouté avec succès !`)
+
+    return response.redirect().toRoute('home')
+  }
 
   /**
    * Show individual record
