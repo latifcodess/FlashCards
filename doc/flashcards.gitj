@@ -47,6 +47,59 @@
       "duration": 10,
       "status": "Done",
       "author": "latifcodess"
+    },
+    {
+      "id": "3bb910f6-925a-4b76-bb2d-a503d9c40734",
+      "type": "commitless",
+      "name": "prof",
+      "description": "Le prof a un peu parlé",
+      "date": "2026-01-21T12:19:00.000Z",
+      "duration": 20,
+      "status": "Done",
+      "author": "latifcodess"
+    },
+    {
+      "id": "a249d46a-204a-4c5d-8f28-05ab76b90724",
+      "type": "commitless",
+      "name": "(app-teachers): étape 8",
+      "description": "",
+      "date": "2026-01-21T15:11",
+      "duration": 20,
+      "status": "WIP",
+      "author": "latifcodess"
+    },
+    {
+      "id": "e5af5912-74c9-4d05-883d-b7770832fd92",
+      "type": "commitless",
+      "name": "Aide Peltier",
+      "description": "Je suis aller aider peltier car il avait des problemes avec ses migrations et sa base de donnée sur docker",
+      "date": "2026-01-21T14:11:00.000Z",
+      "duration": 20,
+      "status": "Done",
+      "author": "latifcodess"
+    },
+    {
+      "id": "8b407cb1-2fa5-4562-95d3-a21f01142199",
+      "type": "commitpatch",
+      "sha": "039bbbf617c601ed9aebe49e82884bcc287a4549",
+      "url": "https://github.com/latifcodess/FlashCards/commit/039bbbf617c601ed9aebe49e82884bcc287a4549",
+      "name": "feat(app-teachers): étape 8 finis",
+      "description": "par erreur j'ai fais l'étape 8 avant de faire l'étape 7",
+      "date": "2026-01-21T14:28:00.000Z",
+      "duration": 20,
+      "status": "Done",
+      "author": "latifcodess",
+      "patch": true
+    },
+    {
+      "id": "9c82b441-de4b-43cd-8e58-63b907686977",
+      "type": "commitless",
+      "name": "Comprehension",
+      "description": "Pendant les étapes j'ai noté quelque truc que j'ai pas compris par exemple les routes. je vais passer le reste de la periode a comprendre ces choses la",
+      "date": "2026-01-21T16:17",
+      "duration": 20,
+      "status": "Done",
+      "author": "latifcodess"
     }
   ]
 }
