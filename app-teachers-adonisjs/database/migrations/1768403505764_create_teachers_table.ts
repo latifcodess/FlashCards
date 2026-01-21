@@ -17,12 +17,12 @@ export default class extends BaseSchema {
       table.string('origine').notNullable()
       // Clé étrangère de la section
       table
-      .integer('section_id') // Clé étrangère
-      .unsigned() // La clé ne doit pas être négative
-      .references('id') // Référence la colonne `id` de la table `section`
-      .inTable('sections') // Nom de la table de référence
-      .onDelete('CASCADE') // Supprime les teachers si la section est supprimée
-      .onUpdate('CASCADE')
+        .integer('section_id') // Clé étrangère
+        .unsigned() // La clé ne doit pas être négative
+        .references('id') // Référence la colonne `id` de la table `section`
+        .inTable('sections') // Nom de la table de référence
+        .onDelete('CASCADE') // Supprime les teachers si la section est supprimée
+        .onUpdate('CASCADE')
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })
