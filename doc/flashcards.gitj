@@ -100,6 +100,19 @@
       "duration": 20,
       "status": "Done",
       "author": "latifcodess"
+    },
+    {
+      "id": "239b67e2-7763-4ef6-b268-edda1d83e7c4",
+      "type": "commitpatch",
+      "sha": "d22f2c68adb4c0e6eeaf15bfab1cb951015cbd96",
+      "url": "https://github.com/latifcodess/FlashCards/commit/d22f2c68adb4c0e6eeaf15bfab1cb951015cbd96",
+      "name": "feat(app-teachers): étape 6 fini",
+      "description": "j'ai mis autant de temps car j'ai été intrigué par les routes que je ne comprenais pas totalement donc je m'y suis interesser mais je continuerai chez moi pour pouvoir finir l'exercice app-teachers aujourd'hui en cours et commencer flashcards la semaine prochaine",
+      "date": "2026-01-21T13:12:00.000Z",
+      "duration": 40,
+      "status": "Done",
+      "author": "latifcodess",
+      "patch": true
     }
   ]
 }
