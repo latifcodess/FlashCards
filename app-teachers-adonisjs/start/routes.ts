@@ -20,4 +20,4 @@ router.get('/teacher/:id/edit', [TeachersController, 'edit']).as('teacher.edit')
 router.put('teacher/:id/update', [TeachersController, 'update']).as('teacher.update')
 
 router.get('/sections', [SectionsController, 'index']).as('section.home')
-router.delete('/sections/action/:id/destroy', [SectionsController, 'destroy']).as('section.destroy')
+router.delete('/sections/:id/destroy', [SectionsController, 'destroy']).as('section.destroy')

@@ -56,6 +56,6 @@ export default class SectionsController {
     
     session.flash('success', `La section ${section.name} a été supprimé avecsuccès !`)
     
-    return response.redirect().toRoute('home')
+    return response.redirect().toRoute('section.home')
   }
 }

@@ -113,6 +113,46 @@
       "status": "Done",
       "author": "latifcodess",
       "patch": true
+    },
+    {
+      "id": "b06c7c25-1df1-4054-a429-3c14a9b772d2",
+      "type": "commitless",
+      "name": "Peer Programing",
+      "description": "j'ai fais du peer programing avec Thomas Peltier pour qu'il puisse finir l'exercice app-teachers",
+      "date": "2026-01-28T12:55:00.000Z",
+      "duration": 100,
+      "status": "Done",
+      "author": "latifcodess"
+    },
+    {
+      "id": "65e7e179-3066-4d44-b0fa-e4d99d818de1",
+      "type": "commitless",
+      "name": "TF",
+      "description": "Nous avons fais un test formatif",
+      "date": "2026-01-28T14:51:00.000Z",
+      "duration": 65,
+      "status": "Done",
+      "author": "latifcodess"
+    },
+    {
+      "id": "e45a2273-c946-4bb9-ad2c-adecb35a1d33",
+      "type": "commitless",
+      "name": "Explication",
+      "description": "Le prof nous a expliqué certain concept du model MVC car certaine personne ne les comprenait pas (routes, migration, etc)",
+      "date": "2026-01-28T15:01:00.000Z",
+      "duration": 40,
+      "status": "Done",
+      "author": "latifcodess"
+    },
+    {
+      "id": "f3a0f057-f06d-4e86-a53e-2ffbe94814b9",
+      "type": "commitless",
+      "name": "Solution TF",
+      "description": "Le prof nous a montré les solutions du TF",
+      "date": "2026-01-28T15:31:00.000Z",
+      "duration": 35,
+      "status": "WIP",
+      "author": "latifcodess"
     }
   ]
 }
