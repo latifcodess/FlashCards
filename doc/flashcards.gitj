@@ -123,6 +123,36 @@
       "duration": 100,
       "status": "Done",
       "author": "latifcodess"
+    },
+    {
+      "id": "5aed0dc3-98a9-4e3b-90f2-c02a784a3a7c",
+      "type": "commitless",
+      "name": "TF",
+      "description": "Nous avons fais un test formatif",
+      "date": "2026-01-28T15:34:00.000Z",
+      "duration": 65,
+      "status": "Done",
+      "author": "latifcodess"
+    },
+    {
+      "id": "c7b520d4-5e04-4f7f-819f-0801d84143ae",
+      "type": "commitless",
+      "name": "Explication",
+      "description": "Le prof nous a expliqué certain concept du model MVC car certaine personnes ne les comprenaient pas (routes, migrations, etc)",
+      "date": "2026-01-28T15:34:00.000Z",
+      "duration": 40,
+      "status": "Done",
+      "author": "latifcodess"
+    },
+    {
+      "id": "ca83c5a0-a8d7-4c50-9360-921272533019",
+      "type": "commitless",
+      "name": "Solution TF",
+      "description": "Le prof nous a montré et expliqué les solutions du TF",
+      "date": "2026-01-28T15:35:00.000Z",
+      "duration": 35,
+      "status": "WIP",
+      "author": "latifcodess"
     }
   ]
 }
