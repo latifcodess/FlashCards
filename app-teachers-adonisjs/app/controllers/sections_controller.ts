@@ -1,4 +1,5 @@
 import Section from '#models/section'
+import { sectionValidator } from '#validators/section'
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class SectionsController {
@@ -16,13 +17,20 @@ export default class SectionsController {
    */
   async create({ view }: HttpContext) {
 
+    return view.render('pages/sections/create', {title: "Ajout d'une section"})
   }
 
   /**
    * Handle form submission for the create action
    */
   async store({ request, session, response }: HttpContext) {
+    const {name} = await request.validateUsing(sectionValidator)
 
+    const section = await Section.create({name})
+
+    session.flash('success', `La nouvelle section ${section.name} a été ajouté avec succès !`)
+
+    return response.redirect().toRoute('section.home')
   }
 
   /**
@@ -54,7 +62,7 @@ export default class SectionsController {
     
     await section.delete()
     
-    session.flash('success', `La section ${section.name} a été supprimé avecsuccès !`)
+    session.flash('success', `La section ${section.name} a été supprimé avec succès !`)
     
     return response.redirect().toRoute('section.home')
   }

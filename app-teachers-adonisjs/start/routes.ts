@@ -21,3 +21,5 @@ router.put('teacher/:id/update', [TeachersController, 'update']).as('teacher.upd
 
 router.get('/sections', [SectionsController, 'index']).as('section.home')
 router.delete('/sections/:id/destroy', [SectionsController, 'destroy']).as('section.destroy')
+router.get('/sections/add', [SectionsController, 'create']).as('section.create')
+router.post('/sections/add', [SectionsController, 'store']).as('section.store')
