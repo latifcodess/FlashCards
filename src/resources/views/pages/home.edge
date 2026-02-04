@@ -13,13 +13,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body>
-    <header>
-      <div class="flex-header">
-        <img src="" alt="Logo">
-        <p>Username</p>
-        <button>Déconnexion</button>
-      </div>
-    </header>
+    @component('pages/components/layout', { title: 'Accueil' })
 
     <h1>Mes decks</h1>
     
@@ -45,5 +39,6 @@
         </tr>
       </tbody>
     </table>
+    @endcomponent
   </body>
 </html>
