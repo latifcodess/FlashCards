@@ -153,6 +153,26 @@
       "duration": 35,
       "status": "WIP",
       "author": "latifcodess"
+    },
+    {
+      "id": "8083a252-3ae2-4a9b-b96f-ed2fd0872082",
+      "type": "commitless",
+      "name": "Explication TF",
+      "description": "Le prof nous a expliqué et montré les solutions du TF",
+      "date": "2026-02-04T12:18:00.000Z",
+      "duration": 40,
+      "status": "Done",
+      "author": "latifcodess"
+    },
+    {
+      "id": "6f010023-824e-4b96-835e-4a2bcce13206",
+      "type": "commitless",
+      "name": "Probleme repo git",
+      "description": "J'ai eu je ne sais quel problème avec mon repo git local dons j'ai du le supprimer le cloner refaire le .env etc",
+      "date": "2026-02-04T12:18:00.000Z",
+      "duration": 20,
+      "status": "Done",
+      "author": "latifcodess"
     }
   ]
 }
