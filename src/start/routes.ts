@@ -7,6 +7,8 @@
 |
 */
 
+import DecksController from '#controllers/decks_controller'
+import deck_seeder from '#database/seeders/deck_seeder'
 import router from '@adonisjs/core/services/router'
 
-router.on('/').render('pages/home')
+router.get('/', [DecksController, 'index']).as('home')

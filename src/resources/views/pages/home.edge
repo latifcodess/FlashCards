@@ -27,16 +27,13 @@
       </thead>
 
       <tbody>
+        @each ((deck, index) in decks)
         <tr>
-          <th>Vue.js</th>
-          <th>Framework Vue.js</th>
+          <th>{{ deck.title }}</th>
+          <th>{{ deck.description }}</th>
           <th>67</th>
         </tr>
-        <tr>
-          <th>MongoDB</th>
-          <th>Base de donnée NoSQL</th>
-          <th>67</th>
-        </tr>
+        @end
       </tbody>
     </table>
     @endcomponent
