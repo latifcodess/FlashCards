@@ -16,26 +16,15 @@
     @component('pages/components/layout', { title: 'Accueil' })
 
     <h1>Mes decks</h1>
-    
-    <table>
-      <thead>
-        <tr>
-          <th>Titre</th>
-          <th>Description</th>
-          <th>Cartes</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        @each ((deck, index) in decks)
-        <tr>
-          <th>{{ deck.title }}</th>
-          <th>{{ deck.description }}</th>
-          <th>67</th>
-        </tr>
-        @end
-      </tbody>
-    </table>
+    <div class="decks">
+      @each((deck, index) in decks)
+      <div class="deck">
+        <h2>{{ deck.title }}</h2>
+        <p>{{ deck.description }}</p>
+        <span>67</span>
+      </div>
+      @end
+    </div>
     @endcomponent
   </body>
 </html>
