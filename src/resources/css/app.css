@@ -1,11 +1,116 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+/* Base */
 html,
 body {
   height: 100%;
   width: 100%;
-  font-family: "JetBrains Mono", monospace, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f6f7f9;
+  color: #1f2933;
+}
+
+/* Header */
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-container button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.logo-container img{
+  height: 40px;
+  width: auto;
+}
+
+/* Page */
+h1 {
+  max-width: 1100px;
+  margin: 2rem auto 1rem;
+  padding: 0 1.5rem;
+  font-size: 1.6rem;
+}
+
+/* Decks layout */
+table {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.6rem;
+  border-collapse: separate;
+}
+
+/* Hide table header */
+thead {
+  display: none;
+}
+
+/* Card */
+tbody tr {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  margin-bottom: 0.6rem;
+}
+
+tbody tr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+tbody th {
+  font-weight: 400;
+  text-align: left;
+}
+
+/* Title */
+tbody th:first-child {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Description */
+tbody th:nth-child(2) {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* Cards count */
+tbody th:last-child {
+  margin-top: auto;
+  font-size: 0.8rem;
+  color: #6b7280;
 }
