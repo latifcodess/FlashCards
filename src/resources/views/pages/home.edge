@@ -6,25 +6,33 @@
     <title>
       P_BULLE - FlashCards
     </title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body>
     @component('pages/components/layout', { title: 'Accueil' })
 
-    <h1>Mes decks</h1>
-    <div class="decks">
-      @each((deck, index) in decks)
-      <div class="deck">
-        <h2>{{ deck.title }}</h2>
-        <p>{{ deck.description }}</p>
-        <span>67</span>
+      <h1>
+        Mes decks
+      </h1>
+
+      <div class="actions">
+        <button class="add-deck-btn">+ Ajouter un deck</button>
       </div>
-      @end
-    </div>
+
+      <div class="decks">
+        @each((deck, index) in decks)
+          <div class="deck">
+            <h2>
+              {{ deck.title }}
+            </h2>
+            <p>
+              {{ deck.description }}
+            </p>
+            <span>67</span>
+          </div>
+        @end
+      </div>
     @endcomponent
   </body>
 </html>
