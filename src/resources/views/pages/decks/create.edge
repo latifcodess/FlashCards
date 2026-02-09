@@ -1,0 +1,29 @@
+@component('pages/components/layout', { title: title })
+<section class="add-deck">
+  <h2>Ajouter un deck</h2>
+
+  <form class="add-deck-form">
+    <div class="form-group">
+      <label for="title">Titre du deck</label>
+      <input
+        type="text"
+        id="title"
+        placeholder="Ex : Réseaux, Math, Anglais…"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        rows="3"
+        placeholder="Description du deck"
+      ></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      Ajouter
+    </button>
+  </form>
+</section>
+@end

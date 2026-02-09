@@ -1,5 +1,6 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Deck from '#models/deck'
+import { title } from 'process'
 
 export default class DecksController {
   /**
@@ -14,7 +15,11 @@ export default class DecksController {
   /**
    * Display form to create a new record
    */
-  async create({}: HttpContext) {}
+  async create({ view }: HttpContext) {
+    const deck = await Deck.query().orderBy('title', 'asc')
+
+    return view.render('pages/decks/create', {title: "Ajout d'un deck"})
+  }
 
   /**
    * Handle form submission for the create action
