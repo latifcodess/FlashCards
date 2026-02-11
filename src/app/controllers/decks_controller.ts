@@ -1,6 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Deck from '#models/deck'
 import { deckValidator } from '#validators/deck'
+import { request } from 'http'
 
 
 export default class DecksController {
@@ -53,12 +54,31 @@ export default class DecksController {
   /**
    * Edit individual record
    */
-  async edit({ params }: HttpContext) {}
+  async edit({ params, view }: HttpContext) {
+    const deck = await Deck.findOrFail(params.id)
+
+    return view.render('pages/decks/edit.edge', {title: 'Modifier un deck', deck})
+  }
 
   /**
    * Handle form submission for the edit action
    */
-  async update({ params, request }: HttpContext) {}
+  async update({ params, request, session, response }: HttpContext) {
+        const { title, description } = await request.validateUsing(deckValidator)
+
+    const deck = await Deck.findOrFail(params.id)
+
+    deck.merge({
+      title,
+      description,
+    })
+
+    const deckUpdated = await deck.save()
+
+    session.flash('success', ` Le deck ${deckUpdated.title} a été mis à jour avec succès !`)
+
+    return response.redirect().toRoute('home')
+  }
 
   /**
    * Delete record

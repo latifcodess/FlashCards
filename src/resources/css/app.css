@@ -9,6 +9,9 @@
   box-sizing: border-box;
 }
 
+
+
+
 /* Base */
 html,
 body {
@@ -17,6 +20,17 @@ body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #fff0f6;
   color: #4a1c2a;
+}
+
+body::before {
+  content: "❤";
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 200px;
+  color: rgba(255, 77, 109, 0.05);
+  pointer-events: none;
 }
 
 a {
@@ -114,7 +128,7 @@ h1 {
 
 .deck:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(201, 24, 74, 0.15);
+  box-shadow: 0 0 20px rgba(255, 77, 109, 0.25);
   cursor: pointer;
 }
 

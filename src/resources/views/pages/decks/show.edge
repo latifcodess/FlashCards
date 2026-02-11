@@ -10,7 +10,7 @@
 
       <div class="deck-actions">
         <button class="action-btn primary">S'exercer</button>
-        <button class="action-btn">Modifier</button>
+        <a href="{{ route('deck.edit', { id: deck.id }) }}"><button class="action-btn">Modifier</button></a>
           <button type="submit" class="action-btn danger" onclick="openModal()">Supprimer</button>
       </div>
     </div>
