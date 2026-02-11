@@ -11,6 +11,7 @@
   </head>
   <body>
     @include('pages/partials/header')
+    @include('pages/partials/flash')
     <div class="container">
         {{{ await $slots.main() }}}
     </div>

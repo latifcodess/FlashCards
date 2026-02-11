@@ -148,8 +148,10 @@ h1 {
 }
 
 .add-deck h2 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  max-width: 1100px;
+  margin: 2rem auto 1rem;
+  padding: 0 1.5rem;
+  font-size: 1.6rem;
 }
 
 .add-deck-form {
@@ -203,4 +205,35 @@ h1 {
 .submit-btn:hover {
   background: #f9fafb;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.flash-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+
+.text-danger {
+  color: red;
+}
+.alert {
+  padding: 15px;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 10px 0;
+}
+.alert-success {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+.alert-danger {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 10px 0;
 }

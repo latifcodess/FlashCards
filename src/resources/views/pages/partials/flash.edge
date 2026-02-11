@@ -1,0 +1,15 @@
+@if(flashMessages.has('success'))
+  <div class="flash-container">
+    <div class="alert alert-success">
+      {{ old('success') }}
+    </div>
+  </div>
+@end
+
+@if(flashMessages.has('error'))
+  <div class="flash-container">
+    <div class="alert alert-danger">
+      {{ old('error') }}
+    </div>
+  </div>
+@end

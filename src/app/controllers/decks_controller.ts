@@ -1,6 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Deck from '#models/deck'
-import { title } from 'process'
+import { deckValidator } from '#validators/deck'
+
 
 export default class DecksController {
   /**
@@ -16,15 +17,21 @@ export default class DecksController {
    * Display form to create a new record
    */
   async create({ view }: HttpContext) {
-    const deck = await Deck.query().orderBy('title', 'asc')
-
     return view.render('pages/decks/create', {title: "Ajout d'un deck"})
   }
 
   /**
    * Handle form submission for the create action
    */
-  async store({ request }: HttpContext) {}
+  async store({ request, session, response }: HttpContext) {
+    const {description, title} = await request.validateUsing(deckValidator)
+
+    const deck = await Deck.create({title, description})
+    
+    session.flash('success', `le nouveau deck ${deck.title} a été ajouté avec succès !`)
+
+    return response.redirect().toRoute('home')
+  }
 
   /**
    * Show individual record
