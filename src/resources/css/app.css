@@ -1,3 +1,7 @@
+/* =========================
+   🌹 SAINT-VALENTIN THEME
+   ========================= */
+
 /* Reset */
 * {
   margin: 0;
@@ -11,11 +15,11 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #f6f7f9;
-  color: #1f2933;
+  background-color: #fff0f6;
+  color: #4a1c2a;
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
@@ -23,7 +27,7 @@ a{
 /* Header */
 header {
   background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #ffc2d1;
 }
 
 .header-container {
@@ -62,13 +66,18 @@ header {
 
 .login-container button {
   padding: 0.4rem 0.8rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid #ff4d6d;
   background: #ffffff;
   cursor: pointer;
   border-radius: 6px;
+  color: #a4133c;
 }
 
-.logo-container img{
+.login-container button:hover {
+  background: #ffe5ec;
+}
+
+.logo-container img {
   height: 40px;
   width: auto;
 }
@@ -79,6 +88,7 @@ h1 {
   margin: 2rem auto 1rem;
   padding: 0 1.5rem;
   font-size: 1.6rem;
+  color: #c9184a;
 }
 
 /* Decks layout */
@@ -93,8 +103,8 @@ h1 {
 
 .deck {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  border: 1px solid #ffc2d1;
+  border-radius: 14px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -103,25 +113,26 @@ h1 {
 }
 
 .deck:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(201, 24, 74, 0.15);
   cursor: pointer;
 }
 
 .deck h2 {
   font-size: 1.1rem;
   font-weight: 600;
+  color: #a4133c;
 }
 
 .deck p {
   font-size: 0.9rem;
-  color: #4b5563;
+  color: #6d2e46;
 }
 
 .deck span {
   margin-top: auto;
   font-size: 0.8rem;
-  color: #6b7280;
+  color: #9d4d6a;
 }
 
 .actions {
@@ -135,16 +146,17 @@ h1 {
 .add-deck-btn {
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #ff4d6d;
   background: #ffffff;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: background 0.15s ease, box-shadow 0.15s ease;
+  transition: all 0.15s ease;
+  color: #a4133c;
 }
 
 .add-deck-btn:hover {
-  background: #f9fafb;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background: #ffe5ec;
+  box-shadow: 0 6px 16px rgba(255, 77, 109, 0.2);
 }
 
 .add-deck {
@@ -154,15 +166,16 @@ h1 {
 }
 
 .add-deck h2 {
-  max-width: 1100px;
+    max-width: 1100px;
   margin: 2rem auto 1rem;
   padding: 0 1.5rem;
   font-size: 1.6rem;
+  color: #c9184a;
 }
 
 .add-deck-form {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #ffc2d1;
   border-radius: 12px;
   padding: 1.2rem;
   display: flex;
@@ -178,14 +191,14 @@ h1 {
 
 .form-group label {
   font-size: 0.85rem;
-  color: #374151;
+  color: #6d2e46;
 }
 
 .form-group input,
 .form-group textarea {
   padding: 0.5rem 0.6rem;
   border-radius: 8px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #ffccd5;
   font-family: inherit;
   font-size: 0.9rem;
   resize: none;
@@ -194,23 +207,24 @@ h1 {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #9ca3af;
+  border-color: #ff4d6d;
 }
 
 .submit-btn {
   align-self: flex-end;
   padding: 0.5rem 1.2rem;
   border-radius: 8px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #ff4d6d;
   background: #ffffff;
   cursor: pointer;
   font-size: 0.9rem;
-  transition: background 0.15s ease, box-shadow 0.15s ease;
+  transition: all 0.15s ease;
+  color: #a4133c;
 }
 
 .submit-btn:hover {
-  background: #f9fafb;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background: #ffe5ec;
+  box-shadow: 0 6px 16px rgba(255, 77, 109, 0.2);
 }
 
 .flash-container {
@@ -220,27 +234,26 @@ h1 {
 }
 
 .text-danger {
-  color: red;
+  color: #c9184a;
 }
+
 .alert {
   padding: 15px;
   border-radius: 4px;
   font-size: 16px;
   margin: 10px 0;
 }
+
 .alert-success {
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  color: #155724;
+  background-color: #ffe5ec;
+  border: 1px solid #ffb3c6;
+  color: #a4133c;
 }
+
 .alert-danger {
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  color: #721c24;
-  padding: 15px;
-  border-radius: 4px;
-  font-size: 16px;
-  margin: 10px 0;
+  background-color: #ffd6e0;
+  border: 1px solid #ff8fab;
+  color: #800f2f;
 }
 
 /* Deck view page */
@@ -253,7 +266,7 @@ h1 {
 
 .deck-view-card {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #ffc2d1;
   border-radius: 14px;
   padding: 2rem;
   display: flex;
@@ -263,11 +276,12 @@ h1 {
 
 .deck-view-card h1 {
   font-size: 1.8rem;
+  color: #c9184a;
 }
 
 .deck-description {
   font-size: 1rem;
-  color: #4b5563;
+  color: #6d2e46;
 }
 
 .deck-actions {
@@ -281,32 +295,37 @@ h1 {
 .action-btn {
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #ff4d6d;
   background: #ffffff;
   cursor: pointer;
   font-size: 0.9rem;
   transition: all 0.15s ease;
+  color: #a4133c;
 }
 
 .action-btn:hover {
-  background: #f9fafb;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background: #ffe5ec;
+  box-shadow: 0 6px 16px rgba(255, 77, 109, 0.2);
 }
 
 .action-btn.primary {
-  border-color: #2563eb;
+  background: #ff4d6d;
+  color: #ffffff;
+  border-color: #ff4d6d;
 }
 
 .action-btn.primary:hover {
-  background: #eff6ff;
+  background: #e5383b;
 }
 
 .action-btn.danger {
-  border-color: #dc2626;
+  background: #c9184a;
+  color: #ffffff;
+  border-color: #c9184a;
 }
 
 .action-btn.danger:hover {
-  background: #fef2f2;
+  background: #a4133c;
 }
 
 /* Modal */
@@ -314,7 +333,7 @@ h1 {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(201, 24, 74, 0.3);
   display: none;
   align-items: center;
   justify-content: center;
@@ -334,16 +353,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  animation: fadeIn 0.15s ease-out;
-}
-
-.modal h2 {
-  font-size: 1.2rem;
-}
-
-.modal p {
-  font-size: 0.9rem;
-  color: #4b5563;
+  border: 1px solid #ffc2d1;
 }
 
 .modal-actions {
