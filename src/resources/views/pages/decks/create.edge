@@ -15,7 +15,7 @@
       />
       @inputError('title')
       <p class="text-danger">
-        {{ $message.join(', ') }}
+        {{ $messages.join(', ') }}
       </p>
       @end
     </div>
@@ -32,7 +32,7 @@
       ></textarea>
       @inputError('description')
       <p class="text-danger">
-        {{ $message.join(', ') }}
+        {{ $messages.join(', ') }}
       </p>
       @end
     </div>

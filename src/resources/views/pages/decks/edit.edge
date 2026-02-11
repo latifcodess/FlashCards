@@ -10,11 +10,11 @@
         type="text"
         id="title"
         name="title"
-        value="{{ old('title') || deck.title '' }}"
+        value="{{ old('title') || deck.title || '' }}"
       />
       @inputError('title')
       <p class="text-danger">
-        {{ $message.join(', ') }}
+        {{ $messages.join(', ') }}
       </p>
       @end
     </div>
@@ -26,11 +26,10 @@
         rows="3"
         id="description"
         name="description"
-        value="{{ old('description') || deck.description || '' }}"
-      ></textarea>
+      >{{ old('description') || deck.description || '' }}</textarea>
       @inputError('description')
       <p class="text-danger">
-        {{ $message.join(', ') }}
+        {{ $messages.join(', ') }}
       </p>
       @end
     </div>
