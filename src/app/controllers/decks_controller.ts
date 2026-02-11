@@ -8,8 +8,10 @@ export default class DecksController {
    * Display a list of resource
    */
   async index({view}: HttpContext) {
+    // cherche les deck dans la db
     const decks = await Deck.query().orderBy('title', 'asc').orderBy('description', 'asc')
 
+    // affiche la page d'acceuil
     return view.render('pages/home', {decks})
   }
 
@@ -17,6 +19,7 @@ export default class DecksController {
    * Display form to create a new record
    */
   async create({ view }: HttpContext) {
+    // affiche la page avec le formulaire pour crée un deck
     return view.render('pages/decks/create', {title: "Ajout d'un deck"})
   }
 
@@ -24,12 +27,16 @@ export default class DecksController {
    * Handle form submission for the create action
    */
   async store({ request, session, response }: HttpContext) {
+    // valide les entrées
     const {description, title} = await request.validateUsing(deckValidator)
 
+    // crée le deck dans la base de données
     const deck = await Deck.create({title, description})
     
+    // affiche un message flash
     session.flash('success', `le nouveau deck ${deck.title} a été ajouté avec succès !`)
 
+    // redirige vers la page d'acceuil
     return response.redirect().toRoute('home')
   }
 
@@ -37,6 +44,7 @@ export default class DecksController {
    * Show individual record
    */
   async show({ params, view }: HttpContext) {
+    // 
     const deck = await Deck.query().where('id', params.id).firstOrFail()
 
     return view.render('pages/decks/show', {title: "Détail d'un deck", deck})
