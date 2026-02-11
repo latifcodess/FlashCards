@@ -183,6 +183,32 @@
       "duration": 45,
       "status": "Done",
       "author": "latifcodess"
+    },
+    {
+      "id": "3dac0e14-c648-4fd7-91fb-1bfa9c3f28bf",
+      "type": "commitpatch",
+      "sha": "50c4d14af51639b778ce0011d6182d7a14d09580",
+      "url": "https://github.com/latifcodess/FlashCards/commit/50c4d14af51639b778ce0011d6182d7a14d09580",
+      "name": "feat(show): ajout de l'affichage des details d'un deck et ses actions",
+      "description": "j'ai reussis a afficher la page de detail des decks mais a l'interieur le titre et la description était undefined, david m'a aidé et il manquait juste un firstOrFail() à la fin de la requête sql dans mon controlleur. je ne l'avais pas mis car je pensais que c'etait quelque chose de propre à app teachers",
+      "date": "2026-02-11T14:38",
+      "duration": 60,
+      "status": "Done",
+      "author": "latifcodess",
+      "patch": true
+    },
+    {
+      "id": "c99f73b1-b5fb-4348-9d4f-b2c1bcc359e5",
+      "type": "commitpatch",
+      "sha": "d415f3dc623966c20051f327a7f965b4f586c091",
+      "url": "https://github.com/latifcodess/FlashCards/commit/d415f3dc623966c20051f327a7f965b4f586c091",
+      "name": "feat(create): création de deck",
+      "description": "la création de deck ne fonctionnait pas alors que j'avais tout bien fait comme dans app teachers j'avais tout verifié mais rien ne marchait, David a trouvé qu'il manquait le csrfField() au debut de mon form, c'est honteux.",
+      "date": "2026-02-11T12:47:00.000Z",
+      "duration": 80,
+      "status": "Done",
+      "author": "latifcodess",
+      "patch": true
     }
   ]
 }
