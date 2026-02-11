@@ -173,6 +173,16 @@
       "duration": 20,
       "status": "Done",
       "author": "latifcodess"
+    },
+    {
+      "id": "8f97b206-72da-400a-9f8d-cf6ec81972cf",
+      "type": "commitless",
+      "name": "Explication",
+      "description": "Le prof nous a expliqué le model de données pour le projet flashcards et nous a reexpliqué les migrations",
+      "date": "2026-02-04T15:50",
+      "duration": 45,
+      "status": "Done",
+      "author": "latifcodess"
     }
   ]
 }

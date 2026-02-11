@@ -1,0 +1,16 @@
+@component('pages/components/layout', { title: title })
+<section class="deck-view">
+  <div class="deck-view-card">
+    <h1>{{ deck.title }}</h1>
+    <p class="deck-description">
+      {{ deck.description }}
+    </p>
+
+    <div class="deck-actions">
+      <button class="action-btn primary">S'exercer</button>
+      <button class="action-btn">Modifier</button>
+      <button class="action-btn danger">Supprimer</button>
+    </div>
+  </div>
+</section>
+@endcomponent

@@ -15,6 +15,11 @@ body {
   color: #1f2933;
 }
 
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Header */
 header {
   background: #ffffff;
@@ -100,6 +105,7 @@ h1 {
 .deck:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
 }
 
 .deck h2 {
@@ -213,7 +219,6 @@ h1 {
   padding: 0 1.5rem;
 }
 
-
 .text-danger {
   color: red;
 }
@@ -236,4 +241,70 @@ h1 {
   border-radius: 4px;
   font-size: 16px;
   margin: 10px 0;
+}
+
+/* Deck view page */
+
+.deck-view {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.deck-view-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.deck-view-card h1 {
+  font-size: 1.8rem;
+}
+
+.deck-description {
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+.deck-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Boutons */
+
+.action-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+
+.action-btn:hover {
+  background: #f9fafb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.action-btn.primary {
+  border-color: #2563eb;
+}
+
+.action-btn.primary:hover {
+  background: #eff6ff;
+}
+
+.action-btn.danger {
+  border-color: #dc2626;
+}
+
+.action-btn.danger:hover {
+  background: #fef2f2;
 }

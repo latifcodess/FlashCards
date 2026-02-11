@@ -22,15 +22,17 @@
 
       <div class="decks">
         @each((deck, index) in decks)
-          <div class="deck">
-            <h2>
-              {{ deck.title }}
-            </h2>
-            <p>
-              {{ deck.description }}
-            </p>
-            <span>67</span>
-          </div>
+          <a href="{{ route('deck.show', { id: deck.id }) }}">    
+            <div class="deck">
+              <h2>
+                {{ deck.title }}
+              </h2>
+              <p>
+                {{ deck.description }}
+              </p>
+              <span>67</span>
+            </div>
+          </a>
         @end
       </div>
     @endcomponent
