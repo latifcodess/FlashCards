@@ -2,6 +2,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 import Deck from '#models/deck'
 import { deckValidator } from '#validators/deck'
 import { request } from 'http'
+import db from '@adonisjs/lucid/services/db'
 
 
 export default class DecksController {
@@ -10,7 +11,7 @@ export default class DecksController {
    */
   async index({view}: HttpContext) {
     // cherche les deck dans la db
-    const decks = await Deck.query().orderBy('title', 'asc').orderBy('description', 'asc')
+    const decks = await Deck.query().select('*').select(db.from('cards').count('*').whereRaw('cards.deck_id = decks.id').as('cards_count')).orderBy('title', 'asc')
 
     // affiche la page d'acceuil
     return view.render('pages/home', {decks})
