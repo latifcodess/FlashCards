@@ -239,6 +239,19 @@
       "duration": 5,
       "status": "Done",
       "author": "latifcodess"
+    },
+    {
+      "id": "74eca619-c3ed-408a-8bfa-4c4b3b1fe201",
+      "type": "commitpatch",
+      "sha": "d786c406facf9c7b9ad6585acb1711bcceabf9b3",
+      "url": "https://github.com/latifcodess/FlashCards/commit/d786c406facf9c7b9ad6585acb1711bcceabf9b3",
+      "name": "feat(cards): affichage des cartes dans les decks",
+      "description": "Je n'avais pas compris que je devais faire ma query pour les cartes dans le controlleur des decks pour les afficher dans les decks et j'avais un problème de css parce que j'avais mal fermé ma balise @each pour les cartes",
+      "date": "2026-02-25T13:16:00.000Z",
+      "duration": 60,
+      "status": "Done",
+      "author": "latifcodess",
+      "patch": true
     }
   ]
 }
