@@ -219,6 +219,26 @@
       "duration": 20,
       "status": "Done",
       "author": "latifcodess"
+    },
+    {
+      "id": "304d9b94-caf6-4e01-8ff0-3f528ac78a82",
+      "type": "commitless",
+      "name": "Explication Scrum Meeting",
+      "description": "Mr. Carrel nous a expliqué ce qu'on doit faire durant un scrum meeting",
+      "date": "2026-02-25T12:30",
+      "duration": 10,
+      "status": "Done",
+      "author": "latifcodess"
+    },
+    {
+      "id": "437c907f-e406-4e4b-ab5a-1ed5bd88fa50",
+      "type": "commitless",
+      "name": "Scrum Meeting",
+      "description": "Ce que j'ai fais : voir JDT\r\nCe que je vais faire : Affichage des cartes dans les decks, ajout de cartes, modification de cartes et suppression de cartes\r\nProblème bloquant : non",
+      "date": "2026-02-25T11:33:00.000Z",
+      "duration": 5,
+      "status": "Done",
+      "author": "latifcodess"
     }
   ]
 }
