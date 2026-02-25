@@ -10,26 +10,56 @@
 
       <div class="deck-actions">
         <button class="action-btn primary">S'exercer</button>
-        <a href="{{ route('deck.edit', { id: deck.id }) }}"><button class="action-btn">Modifier</button></a>
-          <button type="submit" class="action-btn danger" onclick="openModal()">Supprimer</button>
+        <a href="{{ route('deck.edit', { id: deck.id }) }}">          <button class="action-btn">Modifier</button></a>
+        <button type="submit" class="action-btn danger" onclick="openModal()">Supprimer</button>
       </div>
     </div>
-    <div class="modal-overlay" id="deleteModal">
-      <div class="modal">
-        <h2>Confirmer la suppression</h2>
-        <p>Es-tu sûr de vouloir supprimer ce deck ?</p>
 
-        <div class="modal-actions">
-          <button class="action-btn" onclick="closeModal()">
-            Annuler
+    <div class="cards-container">
+      <h2>
+        Cartes du deck
+      </h2>
+
+      @each(card in cards)
+        <div class="card-item">
+          <div class="card-question">
+            <strong>Question :</strong>
+            <p>
+              {{ card.question }}
+            </p>
+          </div>
+
+          <div class="card-answer">
+            <strong>Réponse :</strong>
+            <p>
+              {{ card.response }}
+            </p>
+          </div>
+        </div>
+        @end
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="deleteModal">
+    <div class="modal">
+      <h2>
+        Confirmer la suppression
+      </h2>
+      <p>
+        Es-tu sûr de vouloir supprimer ce deck ?
+      </p>
+
+      <div class="modal-actions">
+        <button class="action-btn" onclick="closeModal()">
+          Annuler
           </button>
         <form action="{{ route('deck.destroy', { id: deck.id }) }}?_method=DELETE" method="POST">
-            {{ csrfField() }}
+          {{ csrfField() }}
           <button type="submit" class="action-btn danger">Supprimer</button>
         </form>
-        </div>
       </div>
     </div>
+  </div>
 
-  </section>
+</section>
 @endcomponent

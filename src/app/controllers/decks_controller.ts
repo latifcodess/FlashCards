@@ -1,18 +1,17 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Deck from '#models/deck'
+import Card from '#models/card'
 import { deckValidator } from '#validators/deck'
-import { request } from 'http'
 import db from '@adonisjs/lucid/services/db'
-
 
 export default class DecksController {
   /**
    * Display a list of resource
    */
   async index({view}: HttpContext) {
-    // selectionne les decks dans la db, ensuite les cards et comptes les cards en les liant à leur deck ( cards.deck_id = decks.id )
+    // selectionne les decks dans la db, ensuite les cards et comptes les cards en comparant cards.deck_id et decks.id
     //  pour separer le nombre de cartes de chaque deck
-    const decks = await Deck.query().select('*').select(db.from('cards').count('*').whereRaw('cards.deck_id = decks.id').as('cards_count')).orderBy('title', 'asc')
+    const decks = await Deck.query().select('*').select(db.from('cards').count('*').whereColumn('cards.deck_id', 'decks.id').as('cards_count')).orderBy('createdAt', 'asc')
 
     // affiche la page d'acceuil
     return view.render('pages/home', {decks})
@@ -49,9 +48,9 @@ export default class DecksController {
   async show({ params, view }: HttpContext) {
     // cherche le deck selectionné via son id
     const deck = await Deck.query().where('id', params.id).firstOrFail()
-
+    const cards = await Card.query().where('deck_id', params.id).orderBy('createdAt','asc')
     // affiche la page d'info pour le deck en question
-    return view.render('pages/decks/show', {title: "Détail d'un deck", deck})
+    return view.render('pages/decks/show', {title: "Détail d'un deck", deck, cards})
   }
 
   /**
