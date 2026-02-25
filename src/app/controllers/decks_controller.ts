@@ -10,7 +10,8 @@ export default class DecksController {
    * Display a list of resource
    */
   async index({view}: HttpContext) {
-    // cherche les deck dans la db
+    // selectionne les decks dans la db, ensuite les cards et comptes les cards en les liant à leur deck ( cards.deck_id = decks.id )
+    //  pour separer le nombre de cartes de chaque deck
     const decks = await Deck.query().select('*').select(db.from('cards').count('*').whereRaw('cards.deck_id = decks.id').as('cards_count')).orderBy('title', 'asc')
 
     // affiche la page d'acceuil
@@ -46,9 +47,10 @@ export default class DecksController {
    * Show individual record
    */
   async show({ params, view }: HttpContext) {
-    // 
+    // cherche le deck selectionné via son id
     const deck = await Deck.query().where('id', params.id).firstOrFail()
 
+    // affiche la page d'info pour le deck en question
     return view.render('pages/decks/show', {title: "Détail d'un deck", deck})
   }
 
@@ -56,6 +58,7 @@ export default class DecksController {
    * Edit individual record
    */
   async edit({ params, view }: HttpContext) {
+    // cherche le deck via id, si deck pas trouvé : erreur
     const deck = await Deck.findOrFail(params.id)
 
     return view.render('pages/decks/edit.edge', {title: 'Modifier un deck', deck})
@@ -65,19 +68,25 @@ export default class DecksController {
    * Handle form submission for the edit action
    */
   async update({ params, request, session, response }: HttpContext) {
-        const { title, description } = await request.validateUsing(deckValidator)
+    // valide les données entrée
+    const { title, description } = await request.validateUsing(deckValidator)
 
+    // cherche le deck via id, si deck pas trouvé : erreur
     const deck = await Deck.findOrFail(params.id)
 
+    // remplace les anciennes donnée par les nouvelles
     deck.merge({
       title,
       description,
     })
 
+    // sauvegarde dans la base de données
     const deckUpdated = await deck.save()
 
+    // affiche un message flash
     session.flash('success', ` Le deck ${deckUpdated.title} a été mis à jour avec succès !`)
 
+    // redirige vers la page d'acceuil
     return response.redirect().toRoute('home')
   }
 
@@ -85,11 +94,16 @@ export default class DecksController {
    * Delete record
    */
   async destroy({ params, session, response }: HttpContext) {
+    // cherche le deck via id, si deck pas trouvé : erreur
     const deck = await Deck.findOrFail(params.id)
 
+    // supprime le deck dans la base de données
     await deck.delete()
+
+    // affiche un message flash
     session.flash('success', `Le deck ${deck.title} a été supprimé avec succès !`)
 
+    // redirige vers la page d'acceuil
     return response.redirect().toRoute('home')
   }
 }

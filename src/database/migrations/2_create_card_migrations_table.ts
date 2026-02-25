@@ -11,8 +11,8 @@ export default class extends BaseSchema {
       table.timestamp('created_at')
       table.timestamp('updated_at')
       table
-        .integer('deck_id') // Clé étrangère
-        .unsigned() // La clé ne doit pas être négative
+        .integer('deck_id') // cle etrangere
+        .unsigned()
         .references('id')
         .inTable('decks')
         .onDelete('CASCADE')
