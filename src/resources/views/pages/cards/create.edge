@@ -1,0 +1,70 @@
+@component('pages/components/layout', { title: title })
+  <section class="add-deck">
+    <h2>
+      Ajouter une carte <span>( {{ deck.title }} )</span>
+    </h2>
+
+    <form class="add-deck-form" action="{{ route('card.store', { deckId: deck.id }) }}" method="POST">
+      {{ csrfField() }}
+      <div class="form-group">
+        <label for="question">Quéstion</label>
+        <input
+          type="text"
+          id="question"
+          name="question"
+          value="{{ old('question') || '' }}"
+          placeholder="Quelle est la capitale du Canada ?"
+        />
+        @inputError('question')
+          <p class="text-danger">
+            {{ $messages.join(', ') }}
+          </p>
+        @end
+      </div>
+
+      <div class="form-group">
+        <label for="reponse">Réponse</label>
+        <textarea 
+        id="reponse" 
+        rows="3" 
+        name="reponse" 
+        placeholder="Ottawa"
+        >{{ old('reponse') || '' }}</textarea>
+        @inputError('reponse')
+          <p class="text-danger">
+            {{ $messages.join(', ') }}
+          </p>
+        @end
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Ajouter
+      </button>
+    </form>
+    <div class="preview-section">
+      <h3>
+        Aperçu
+      </h3>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <strong>QUESTION</strong>
+            <p id="preview-q">
+              Votre question apparaîtra ici...
+            </p>
+          </div>
+          <div class="flip-card-back">
+            <strong>RÉPONSE</strong>
+            <p id="preview-r">
+              Votre réponse apparaîtra ici...
+            </p>
+          </div>
+        </div>
+      </div>
+      <p class="preview-hint">
+        Cliquez sur la carte pour la retourner
+      </p>
+    </div>
+  </div>
+</section>
+@end

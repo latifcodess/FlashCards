@@ -48,7 +48,10 @@ export default class DecksController {
   async show({ params, view }: HttpContext) {
     // cherche le deck selectionné via son id
     const deck = await Deck.query().where('id', params.id).firstOrFail()
+
+    // cherche les cartes via l'id du deck
     const cards = await Card.query().where('deck_id', params.id).orderBy('createdAt','asc')
+    
     // affiche la page d'info pour le deck en question
     return view.render('pages/decks/show', {title: "Détail d'un deck", deck, cards})
   }

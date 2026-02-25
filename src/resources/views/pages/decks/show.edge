@@ -20,6 +20,9 @@
         Cartes du deck
       </h2>
 
+      <div class="actions">
+        <a href="{{ route('card.create', { id: deck.id }) }}">          <button class="add-deck-btn">+ Ajouter une carte</button></a>
+      </div>
       @each(card in cards)
         <div class="card-item">
           <div class="card-question">
@@ -32,11 +35,11 @@
           <div class="card-answer">
             <strong>Réponse :</strong>
             <p>
-              {{ card.response }}
+              {{ card.reponse }}
             </p>
           </div>
         </div>
-        @end
+      @end
     </div>
   </div>
 
