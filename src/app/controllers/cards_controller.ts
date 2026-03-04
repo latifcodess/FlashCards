@@ -38,22 +38,42 @@ export default class CardsController {
    */
   async show({ params, view }: HttpContext) {
     const card = await Card.query().where('id', params.id).firstOrFail()
+    const deck = await Deck.query().where('id', params.deckId).firstOrFail()
 
-    return view.render('pages/cards/show',{ title: "Détail d'une carte", card })
+    return view.render('pages/cards/show',{ title: "Détail d'une carte", card, deck })
   }
 
   /**
    * Edit individual record
    */
-  async edit({ params }: HttpContext) {}
+  async edit({ params, view }: HttpContext) {
+    const card = await Card.findOrFail(params.id)
+    const deck = await Deck.findOrFail(params.deckId)
+
+    return view.render('pages/cards/edit.edge', { title: 'Modifier une carte',card, deck })
+  }
 
   /**
    * Handle form submission for the edit action
    */
-  async update({ params, request }: HttpContext) {}
+  async update({ params, request, session, response }: HttpContext) {
+    const { question, answer } = await request.validateUsing(cardValidator)
+
+    const card = await Card.findOrFail(params.id)
+    const deck = await Deck.findOrFail(params.deckId)
+
+    card.merge({ question, answer })
+
+    const cardUpdated = await card.save()
+
+    session.flash('success', `La carte a été mis à jour avec succès !`)
+
+    return response.redirect().toRoute('deck.show', { id: deck.id })
+  }
 
   /**
    * Delete record
    */
-  async destroy({ params }: HttpContext) {}
+  async destroy({ params, session, response }: HttpContext) {
+  }
 }

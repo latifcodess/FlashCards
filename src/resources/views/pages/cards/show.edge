@@ -25,11 +25,11 @@
       <p class="preview-hint">Cliquez sur la carte pour voir la réponse</p>
 
       <div class="deck-actions">
-        <a>
+        <a href="{{ route('deck.show', {id: deck.id}) }}">
           <button class="action-btn">Retour</button>
         </a>
 
-        <a>
+        <a href="{{ route('card.edit', { deckId: deck.id, id: card.id }) }}">
           <button class="action-btn primary">Modifier</button>
         </a>
 
