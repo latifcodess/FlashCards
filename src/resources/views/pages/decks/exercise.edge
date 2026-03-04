@@ -1,0 +1,44 @@
+@component('pages/components/layout', { title: "Session d'exercice" })
+  <section class="exercise-container">
+    
+    <div class="progress-wrapper">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 40%;"></div>
+      </div>
+      <p>Carte {{ card.id }} / 10</p>
+    </div>
+
+    <div class="flashcard-area">
+      <div class="flip-card large-flashcard" id="exerciseCard" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          
+          <div class="flip-card-front">
+            <strong>Question</strong>
+            <p>
+              {{ card.question }}
+            </p>
+          </div>
+          
+          <div class="flip-card-back">
+            <strong>Réponse</strong>
+            <p>
+              {{ card.answer }}
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="controls-area" id="controls">
+      <button class="btn-validation wrong">
+        Faux ?
+      </button>
+      
+      <button class="btn-validation correct">
+        Juste ?
+      </button>
+    </div>
+
+  </section>
+@end

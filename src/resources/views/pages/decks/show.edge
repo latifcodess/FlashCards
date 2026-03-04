@@ -9,7 +9,7 @@
       </p>
 
       <div class="deck-actions">
-        <button class="action-btn primary">S'exercer</button>
+        <a href="{{ route('deck.exercise', { id: deck.id }) }}"><button class="action-btn primary">S'exercer</button></a>
         <a href="{{ route('deck.edit', { id: deck.id }) }}">          <button class="action-btn">Modifier</button></a>
         <button type="submit" class="action-btn danger" onclick="openModal()">Supprimer</button>
       </div>

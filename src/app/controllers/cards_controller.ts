@@ -1,4 +1,4 @@
-import type { HttpContext } from '@adonisjs/core/http'
+import { HttpContext } from '@adonisjs/core/http'
 import Card from '#models/card'
 import Deck from '#models/deck'
 import { cardValidator } from '#validators/card'
@@ -21,10 +21,10 @@ export default class CardsController {
    * Handle form submission for the create action
    */
   async store({ request, session, response, params }: HttpContext) {
-    const {question, answer} = await request.validateUsing(cardValidator)
+    const { question, answer } = await request.validateUsing(cardValidator)
 
     // crée le deck dans la base de données
-    await Card.create({ question, answer, deckId: params.deckId})
+    await Card.create({ question, answer, deckId: params.deckId })
 
     // affiche un message flash
     session.flash('success', `une nouvelle carte a été ajouté avec succès !`)
@@ -40,7 +40,7 @@ export default class CardsController {
     const card = await Card.query().where('id', params.id).firstOrFail()
     const deck = await Deck.query().where('id', params.deckId).firstOrFail()
 
-    return view.render('pages/cards/show',{ title: "Détail d'une carte", card, deck })
+    return view.render('pages/cards/show', { title: "Détail d'une carte", card, deck })
   }
 
   /**
@@ -50,7 +50,7 @@ export default class CardsController {
     const card = await Card.findOrFail(params.id)
     const deck = await Deck.findOrFail(params.deckId)
 
-    return view.render('pages/cards/edit.edge', { title: 'Modifier une carte',card, deck })
+    return view.render('pages/cards/edit.edge', { title: 'Modifier une carte', card, deck })
   }
 
   /**

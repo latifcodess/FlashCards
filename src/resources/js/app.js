@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const previewQ = document.getElementById('preview-q')
   const previewR = document.getElementById('preview-r')
   const card = document.querySelector('.flip-card')
+  const answerButtons = document.querySelector('.controls-area')
 
   // snchronisation de la Question
   inputQ.addEventListener('input', (e) => {
@@ -42,5 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // force la carte sur verso pour voir ce qu'on écrit
     card.classList.add('flipped')
+    answerButtons.classList.add('active')
   })
 })

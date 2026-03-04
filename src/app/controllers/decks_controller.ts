@@ -9,7 +9,7 @@ export default class DecksController {
    * Display a list of resource
    */
   async index({ view }: HttpContext) {
-    // selectionne les decks dans la db, ensuite les cards et comptes les cards en faisant la sous-requête (jointure) : cards.deck_id = decks.id 
+    // selectionne les decks dans la db, ensuite les cards et comptes les cards en faisant la sous-requête (jointure) : cards.deck_id = decks.id
     // pour separer le nombre de cartes de chaque deck
     const decks = await Deck.query()
       .select('*')
@@ -109,5 +109,12 @@ export default class DecksController {
 
     // redirige vers la page d'acceuil
     return response.redirect().toRoute('home')
+  }
+
+  async exercise({ params, view }: HttpContext) {
+    const card = await Card.findOrFail(params.id)
+    const deck = await Deck.findOrFail(params.id)
+
+    return view.render('pages/decks/exercise.edge', { title: "S'exercer", deck, card })
   }
 }
