@@ -153,6 +153,23 @@ h1 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
+.add-card-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.add-card-btn:hover {
+  background: #f9fafb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
 .add-deck {
   max-width: 1100px;
   margin: 0 auto 2rem;
@@ -407,12 +424,12 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  margin-top: 20px;
+  gap: 1.5rem; /* Un peu plus d'espace */
+  margin-top: 40px; /* Plus de marge au-dessus */
 }
 
 .preview-hint {
-  font-size: 0.8rem;
+  font-size: 1rem; /* Légèrement plus grand pour correspondre à la taille de la carte */
   color: #6b7280;
   font-style: italic;
 }
@@ -420,8 +437,8 @@ h1 {
 .flip-card {
   background-color: transparent;
   width: 100%;
-  max-width: 350px;
-  height: 220px;
+  max-width: 750px; /* Beaucoup plus large (anciennement 350px) */
+  height: 450px;    /* Beaucoup plus haute (anciennement 220px) */
   perspective: 1000px;
   cursor: pointer;
 }
@@ -433,8 +450,8 @@ h1 {
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée pour l'effet de profondeur */
+  border-radius: 16px; /* Bordures légèrement plus arrondies */
 }
 
 .flip-card.flipped .flip-card-inner {
@@ -452,8 +469,8 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem;
-  border-radius: 14px;
+  padding: 3rem; /* Plus d'espace intérieur */
+  border-radius: 16px;
   border: 1px solid #e5e7eb;
 }
 
@@ -463,27 +480,29 @@ h1 {
 }
 
 .flip-card-back {
-  background-color: #f9fafb;
+  background-color: #f9fafb; /* Le fond légèrement gris pour le verso */
   color: #1f2933;
   transform: rotateY(180deg);
 }
 
 .flip-card-front strong,
 .flip-card-back strong {
-  font-size: 0.7rem;
+  font-size: 1.1rem; /* Labels plus visibles (anciennement 0.7rem) */
   color: #2563eb;
-  letter-spacing: 0.1rem;
-  margin-bottom: 1rem;
+  letter-spacing: 0.2rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
 }
 
 .flip-card-front p,
 .flip-card-back p {
-  font-size: 1.1rem;
+  font-size: 2.2rem; /* Texte géant pour la lecture (anciennement 1.1rem) */
+  line-height: 1.5;
   font-weight: 500;
   word-break: break-word;
 }
 
-.createdeck-action{
+.createdeck-action {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;

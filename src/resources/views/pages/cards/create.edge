@@ -37,9 +37,16 @@
         @end
       </div>
 
-      <button type="submit" class="submit-btn">
-        Ajouter
-      </button>
+      <div class="createdeck-action">
+        <a href="{{ route('deck.show', {id: deck.id}) }}">
+          <button type="button" class="submit-btn">
+            Abandonner
+          </button>
+        </a>
+        <button type="submit" class="submit-btn">
+          Ajouter
+        </button>
+      </div>
     </form>
     <div class="preview-section">
       <h3>

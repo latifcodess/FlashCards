@@ -1,0 +1,60 @@
+@component('pages/components/layout', { title: title })
+  <section class="deck-view">
+    
+    <div class="preview-section">
+      <div class="flip-card large-flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          
+          <div class="flip-card-front">
+            <strong>Question</strong>
+            <p>
+              {{ card.question }}
+            </p>
+          </div>
+          
+          <div class="flip-card-back">
+            <strong>Réponse</strong>
+            <p>
+              {{ card.answer }}
+            </p>
+          </div>
+          
+        </div>
+      </div>
+      
+      <p class="preview-hint">Cliquez sur la carte pour voir la réponse</p>
+
+      <div class="deck-actions">
+        <a>
+          <button class="action-btn">Retour</button>
+        </a>
+
+        <a>
+          <button class="action-btn primary">Modifier</button>
+        </a>
+
+        <button type="button" class="action-btn danger" onclick="openModal()">Supprimer</button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="deleteModal">
+      <div class="modal">
+        <h2>Confirmer la suppression</h2>
+        <p>
+          Es-tu sûr de vouloir supprimer cette carte ?
+        </p>
+
+        <div class="modal-actions">
+          <button type="button" class="action-btn" onclick="closeModal()">
+            Annuler
+          </button>
+          
+          <form>
+            <button type="submit" class="action-btn danger">Supprimer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </section>
+@end

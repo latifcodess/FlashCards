@@ -25,6 +25,6 @@ router.put('/deck/:id/update', [DecksController, 'update']).as('deck.update')
 // route pour les cartes
 router.get('deck/:id/card/add', [CardsController, 'create']).as('card.create')
 router.post('deck/:deckId/card/add', [CardsController, 'store']).as('card.store')
-router.get('deck/deckId/card/:id/show', [CardsController, 'show']).as('card.show')
+router.get('deck/:deckId/card/:id/show', [CardsController, 'show']).as('card.show')
 router.get('deck/:deckId/card/:id/edit', [CardsController, 'edit']).as('card.edit')
 router.put('deck/:deckId/card/:id/update', [CardsController, 'update']).as('card.update')

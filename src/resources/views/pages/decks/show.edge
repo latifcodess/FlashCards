@@ -21,7 +21,7 @@
       </h2>
 
       <div class="actions">
-        <a href="{{ route('card.create', { id: deck.id }) }}">          <button class="add-deck-btn">+ Ajouter une carte</button></a>
+        <a href="{{ route('card.create', { id: deck.id }) }}">          <button class="add-card-btn">+ Ajouter une carte</button></a>
       </div>
       @each(card in cards)
         <a href="{{ route('card.show', {deckId: deck.id, id: card.id}) }}">          
