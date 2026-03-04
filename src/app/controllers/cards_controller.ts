@@ -75,5 +75,13 @@ export default class CardsController {
    * Delete record
    */
   async destroy({ params, session, response }: HttpContext) {
+    const card = await Card.findOrFail(params.id)
+    const deck = await Deck.findOrFail(params.deckId)
+
+    await card.delete()
+
+    session.flash('success', `La carte a été supprimée avec succès !`)
+
+    return response.redirect().toRoute('deck.show', { id: deck.id })
   }
 }

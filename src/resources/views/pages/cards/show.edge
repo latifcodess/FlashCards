@@ -49,9 +49,10 @@
             Annuler
           </button>
           
-          <form>
-            <button type="submit" class="action-btn danger">Supprimer</button>
-          </form>
+        <form action="{{ route('card.destroy', { deckId: deck.id, id: card.id }) }}?_method=DELETE" method="POST">
+          {{ csrfField() }}
+          <button type="submit" class="action-btn danger">Supprimer</button>
+        </form>
         </div>
       </div>
     </div>
