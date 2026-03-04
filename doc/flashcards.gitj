@@ -252,6 +252,52 @@
       "status": "Done",
       "author": "latifcodess",
       "patch": true
+    },
+    {
+      "id": "8db63e37-9a87-4537-bc5a-8d95a06761e2",
+      "type": "commitless",
+      "name": "Explication",
+      "description": "Le prof nous a expliqué comment le test allait se passer",
+      "date": "2026-03-04T11:35:00.000Z",
+      "duration": 15,
+      "status": "Done",
+      "author": "latifcodess"
+    },
+    {
+      "id": "7fd487f7-c5a6-4acf-8f26-f5b60be54008",
+      "type": "commitless",
+      "name": "Modifier une carte",
+      "description": "j'ai commencé a faire des routes et un fichier .edge pour modififer une carte mais apres j'ai commencé à lire l'analyse fonctionnel et j'ai vu que j'avais pas de bouton abandonner dans la creation de deck",
+      "date": "2026-03-04T12:19:00.000Z",
+      "duration": 25,
+      "status": "Done",
+      "author": "latifcodess"
+    },
+    {
+      "id": "486f645a-4238-4cd0-988f-2f1b8a18e231",
+      "type": "commitpatch",
+      "sha": "97615d0ba62b03b1396a2bbc18e2b8638845057a",
+      "url": "https://github.com/latifcodess/FlashCards/commit/97615d0ba62b03b1396a2bbc18e2b8638845057a",
+      "name": "feat(Cards): page de detail des cartes",
+      "description": "j'ai oublié de faire un pour ça commit mais j'ai ajouté un bouton abandonner dans tout les forms",
+      "date": "2026-03-04T12:43:00.000Z",
+      "duration": 20,
+      "status": "Done",
+      "author": "latifcodess",
+      "patch": true
+    },
+    {
+      "id": "f6b0dce0-a316-4f0d-afc5-ff48ffedf318",
+      "type": "commitpatch",
+      "sha": "45135c9451c908affd4e7bfece98c1ba87160cbf",
+      "url": "https://github.com/latifcodess/FlashCards/commit/45135c9451c908affd4e7bfece98c1ba87160cbf",
+      "name": "feat(Cards): modification des cartes",
+      "description": "j'ai eu des petits probleme avec le form parce que je l'ai repris de la modification des deck",
+      "date": "2026-03-04T13:10:00.000Z",
+      "duration": 30,
+      "status": "Done",
+      "author": "latifcodess",
+      "patch": true
     }
   ]
 }
