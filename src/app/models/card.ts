@@ -12,7 +12,7 @@ export default class Card extends BaseModel {
   declare question: string
 
   @column()
-  declare reponse: string
+  declare answer: string
 
   @column()
   declare deckId: number

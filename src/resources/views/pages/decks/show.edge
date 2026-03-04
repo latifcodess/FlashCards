@@ -24,21 +24,23 @@
         <a href="{{ route('card.create', { id: deck.id }) }}">          <button class="add-deck-btn">+ Ajouter une carte</button></a>
       </div>
       @each(card in cards)
-        <div class="card-item">
-          <div class="card-question">
-            <strong>Question :</strong>
-            <p>
-              {{ card.question }}
-            </p>
-          </div>
+        <a href="{{ route('card.show', {deckId: deck.id, id: card.id}) }}">          
+          <div class="card-item">
+            <div class="card-question">
+              <strong>Question :</strong>
+              <p>
+                {{ card.question }}
+              </p>
+            </div>
 
-          <div class="card-answer">
-            <strong>Réponse :</strong>
-            <p>
-              {{ card.reponse }}
-            </p>
+            <div class="card-answer">
+              <strong>Réponse :</strong>
+              <p>
+                {{ card.answer }}
+              </p>
+            </div>
           </div>
-        </div>
+        </a>
       @end
     </div>
   </div>

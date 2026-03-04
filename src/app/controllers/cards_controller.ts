@@ -21,10 +21,10 @@ export default class CardsController {
    * Handle form submission for the create action
    */
   async store({ request, session, response, params }: HttpContext) {
-    const {question, reponse} = await request.validateUsing(cardValidator)
+    const {question, answer} = await request.validateUsing(cardValidator)
 
     // crée le deck dans la base de données
-    await Card.create({ question, reponse, deckId: params.deckId})
+    await Card.create({ question, answer, deckId: params.deckId})
 
     // affiche un message flash
     session.flash('success', `une nouvelle carte a été ajouté avec succès !`)

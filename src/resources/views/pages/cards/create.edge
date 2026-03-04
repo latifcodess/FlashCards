@@ -23,14 +23,14 @@
       </div>
 
       <div class="form-group">
-        <label for="reponse">Réponse</label>
+        <label for="answer">Réponse</label>
         <textarea 
-        id="reponse" 
+        id="answer" 
         rows="3" 
-        name="reponse" 
+        name="answer" 
         placeholder="Ottawa"
-        >{{ old('reponse') || '' }}</textarea>
-        @inputError('reponse')
+        >{{ old('answer') || '' }}</textarea>
+        @inputError('answer')
           <p class="text-danger">
             {{ $messages.join(', ') }}
           </p>

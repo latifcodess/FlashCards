@@ -8,13 +8,15 @@ export default class DecksController {
   /**
    * Display a list of resource
    */
-  async index({view}: HttpContext) {
-    // selectionne les decks dans la db, ensuite les cards et comptes les cards en comparant cards.deck_id et decks.id
-    //  pour separer le nombre de cartes de chaque deck
-    const decks = await Deck.query().select('*').select(db.from('cards').count('*').whereColumn('cards.deck_id', 'decks.id').as('cards_count')).orderBy('createdAt', 'asc')
-
+  async index({ view }: HttpContext) {
+    // selectionne les decks dans la db, ensuite les cards et comptes les cards en faisant la sous-requête (jointure) : cards.deck_id = decks.id 
+    // pour separer le nombre de cartes de chaque deck
+    const decks = await Deck.query()
+      .select('*')
+      .select(db.from('cards').count('*').whereRaw('cards.deck_id = decks.id').as('cards_count'))
+      .orderBy('created_at', 'desc')
     // affiche la page d'acceuil
-    return view.render('pages/home', {decks})
+    return view.render('pages/home', { decks })
   }
 
   /**
@@ -22,7 +24,7 @@ export default class DecksController {
    */
   async create({ view }: HttpContext) {
     // affiche la page avec le formulaire pour crée un deck
-    return view.render('pages/decks/create', {title: "Ajout d'un deck"})
+    return view.render('pages/decks/create', { title: "Ajout d'un deck" })
   }
 
   /**
@@ -30,11 +32,11 @@ export default class DecksController {
    */
   async store({ request, session, response }: HttpContext) {
     // valide les entrées
-    const {description, title} = await request.validateUsing(deckValidator)
+    const { description, title } = await request.validateUsing(deckValidator)
 
     // crée le deck dans la base de données
-    const deck = await Deck.create({title, description})
-    
+    const deck = await Deck.create({ title, description })
+
     // affiche un message flash
     session.flash('success', `le nouveau deck ${deck.title} a été ajouté avec succès !`)
 
@@ -50,10 +52,10 @@ export default class DecksController {
     const deck = await Deck.query().where('id', params.id).firstOrFail()
 
     // cherche les cartes via l'id du deck
-    const cards = await Card.query().where('deck_id', params.id).orderBy('createdAt','asc')
-    
+    const cards = await Card.query().where('deck_id', params.id).orderBy('createdAt', 'desc')
+
     // affiche la page d'info pour le deck en question
-    return view.render('pages/decks/show', {title: "Détail d'un deck", deck, cards})
+    return view.render('pages/decks/show', { title: "Détail d'un deck", deck, cards })
   }
 
   /**
@@ -63,7 +65,7 @@ export default class DecksController {
     // cherche le deck via id, si deck pas trouvé : erreur
     const deck = await Deck.findOrFail(params.id)
 
-    return view.render('pages/decks/edit.edge', {title: 'Modifier un deck', deck})
+    return view.render('pages/decks/edit.edge', { title: 'Modifier un deck', deck })
   }
 
   /**

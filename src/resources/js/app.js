@@ -21,7 +21,7 @@ document.addEventListener('click', function (e) {
 document.addEventListener('DOMContentLoaded', () => {
   // récupère les id et les class du DOM
   const inputQ = document.getElementById('question')
-  const inputR = document.getElementById('repsonse')
+  const inputR = document.getElementById('answer')
   const previewQ = document.getElementById('preview-q')
   const previewR = document.getElementById('preview-r')
   const card = document.querySelector('.flip-card')
