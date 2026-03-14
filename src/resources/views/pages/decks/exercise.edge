@@ -1,44 +1,171 @@
 @component('pages/components/layout', { title: "Session d'exercice" })
   <section class="exercise-container">
-    
-    <div class="progress-wrapper">
-      <div class="progress-bar">
-        <div class="progress-fill" style="width: 40%;"></div>
+
+    <div id="exerciseView">
+      <div class="progress-wrapper">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width: 10%;">
+          </div>
+        </div>
+        <p>
+          <span id="currentCardNumber">1</span>/ <span id="totalCards">{{ cards.length }}</span>
+        </p>
       </div>
-      <p>Carte {{ card.id }} / 10</p>
+
+      <div class="flashcard-area">
+        <div
+          class="flip-card large-flashcard"
+          id="exerciseCard"
+          onclick="document.getElementById('exerciseCard').classList.toggle('flipped'); if(document.getElementById('exerciseCard').classList.contains('flipped')) document.getElementById('controls').style.display='flex';"
+        >
+          <div class="flip-card-inner">
+
+            <div class="flip-card-front">
+              <strong>Question</strong>
+              <p id="cardQuestion">
+                {{ cards[0]?.question || 'Aucune question' }}
+              </p>
+            </div>
+
+            <div class="flip-card-back">
+              <strong>Réponse</strong>
+              <p id="cardAnswer">
+                {{ cards[0]?.answer || 'Aucune réponse' }}
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align: center; color: #666; margin-top: 1rem;">
+        Cliquez sur la carte pour la retourner
+      </p>
+
+      <div class="controls-area" id="controls" style="display: none;">
+        <button class="btn-validation wrong" onclick="recordAnswer('wrong')">
+          ✗ Faux
+        </button>
+
+        <button class="btn-validation correct" onclick="recordAnswer('correct')">
+          ✓ Juste
+        </button>
+      </div>
+
+      <div class="controls-area" id="nextControls" style="display: none;">
+        <button class="btn-next" onclick="nextCard()">
+          Carte suivante →
+        </button>
+      </div>
     </div>
 
-    <div class="flashcard-area">
-      <div class="flip-card large-flashcard" id="exerciseCard" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          
-          <div class="flip-card-front">
-            <strong>Question</strong>
-            <p>
-              {{ card.question }}
-            </p>
+    <div id="endView" class="end-screen-wrapper" style="display: none; width: 100%;">
+      <div class="end-screen">
+        <h2>
+          🎉 Exercice terminé !
+        </h2>
+
+        <div class="score-box">
+          <div class="score-item correct-color">
+            <span class="score-label">Juste</span>
+            <span class="score-number" id="scoreCorrect">0</span>
           </div>
-          
-          <div class="flip-card-back">
-            <strong>Réponse</strong>
-            <p>
-              {{ card.answer }}
-            </p>
+
+          <div class="score-item wrong-color">
+            <span class="score-label">Faux</span>
+            <span class="score-number" id="scoreWrong">0</span>
           </div>
-          
+        </div>
+
+        <div class="end-actions">
+          <a class="btn-restart" href="{{ route('deck.exercise', { id: deck.id }) }}">
+            🔄 Recommencer
+          </a>
+          <a class="btn-return" href="{{ route('deck.show', { id: deck.id }) }}">
+            ← Retour au deck
+          </a>
         </div>
       </div>
     </div>
-
-    <div class="controls-area" id="controls">
-      <button class="btn-validation wrong">
-        Faux ?
-      </button>
-      
-      <button class="btn-validation correct">
-        Juste ?
-      </button>
-    </div>
-
   </section>
+
+  <script>
+    // transforme les données envoyé par le serveurs en objet js utilisable
+    const allCards = {{{JSON.stringify(cards)}}};
+
+    // numero de la carte
+    let currentIndex = 0;
+
+    // objet qui contient le nombre de réponses justes et fausses
+    let score = {
+      correct: 0,
+      wrong: 0
+    };
+
+
+    function displayCard(index) {
+      // si l'index de sort de la taille de la length on sort de la fonction
+      if (index < 0 || index >= allCards.length) return;
+
+      // le numero de la carte est l'index
+      currentIndex = index;
+
+      // card contient les données de la card dans le tableau allCards a l'index indiqué dans le parametre
+      const card = allCards[index];
+
+      // injecte les données de la card
+      document.getElementById("cardQuestion").textContent = card.question || "";
+      document.getElementById("cardAnswer").textContent = card.answer || "";
+      
+      // affiche le numéro de la carte
+      document.getElementById("currentCardNumber").textContent = index + 1;
+
+      // calcule de la bar de progression 
+      const progress = (index + 1) / allCards.length * 100;
+
+      // affichage de la page de progression
+      document.getElementById("progressFill").style.width = progress + "%";
+      
+      // reinitialise l'affichage poour la prochaine carte
+      document.getElementById("exerciseCard").classList.remove("flipped");
+      document.getElementById("controls").style.display = "none";
+      document.getElementById("nextControls").style.display = "none";
+    }
+
+    function recordAnswer(result) {
+      // enregistre le resultat de l'utilisateur
+      if (result === "correct") {
+        score.correct++;
+      } else if (result === "wrong") {
+        score.wrong++;
+      }
+
+      // cache les boutons de resultat et affiche le bouton pour passer à la carte suivante
+      document.getElementById("controls").style.display = "none";
+      document.getElementById("nextControls").style.display = "flex";
+    }
+
+
+    function nextCard() {
+
+      // si l'index actuel est plus petit que la taille du tableau allCards on affiche la prochaine card sinon on affiche la page de resultat
+      if (currentIndex < allCards.length - 1) {
+        displayCard(currentIndex + 1);
+      } else {
+        showEndScreen();
+      }
+    }
+
+    function showEndScreen() {
+      document.getElementById("exerciseView").style.display = "none";
+      document.getElementById("endView").style.display = "flex";
+
+      // injecte les scores
+      document.getElementById("scoreCorrect").textContent = score.correct;
+      document.getElementById("scoreWrong").textContent = score.wrong;
+    }
+
+    // affichage de la premiere card au chargement de la page
+    displayCard(0);
+  </script>
 @end

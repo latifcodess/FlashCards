@@ -21,7 +21,7 @@ export default class CardsController {
    * Handle form submission for the create action
    */
   async store({ request, session, response, params }: HttpContext) {
-    const { question, answer } = await request.validateUsing(cardValidator)
+    const { question, answer } = await request.validateUsing(cardValidator())
 
     // crée le deck dans la base de données
     await Card.create({ question, answer, deckId: params.deckId })
@@ -57,10 +57,12 @@ export default class CardsController {
    * Handle form submission for the edit action
    */
   async update({ params, request, session, response }: HttpContext) {
-    const { question, answer } = await request.validateUsing(cardValidator)
+    
 
     const card = await Card.findOrFail(params.id)
     const deck = await Deck.findOrFail(params.deckId)
+
+    const { question, answer } = await request.validateUsing(cardValidator(card.id))
 
     card.merge({ question, answer })
 

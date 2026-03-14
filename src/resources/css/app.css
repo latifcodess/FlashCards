@@ -425,21 +425,20 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem; /* Un peu plus d'espace */
-  margin-top: 40px; /* Plus de marge au-dessus */
+  gap: 1.5rem;
+  margin-top: 40px;
 }
 
 .preview-hint {
-  font-size: 1rem; /* Légèrement plus grand pour correspondre à la taille de la carte */
+  font-size: 1rem;
   color: #6b7280;
   font-style: italic;
 }
 
 .flip-card {
   background-color: transparent;
-  width: 100%;
-  max-width: 750px; /* Beaucoup plus large (anciennement 350px) */
-  height: 450px;    /* Beaucoup plus haute (anciennement 220px) */
+  width: 750px;
+  height: 450px;
   perspective: 1000px;
   cursor: pointer;
 }
@@ -451,8 +450,8 @@ h1 {
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée pour l'effet de profondeur */
-  border-radius: 16px; /* Bordures légèrement plus arrondies */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
 }
 
 .flip-card.flipped .flip-card-inner {
@@ -470,7 +469,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3rem; /* Plus d'espace intérieur */
+  padding: 3rem;
   border-radius: 16px;
   border: 1px solid #e5e7eb;
 }
@@ -481,14 +480,14 @@ h1 {
 }
 
 .flip-card-back {
-  background-color: #f9fafb; /* Le fond légèrement gris pour le verso */
+  background-color: #f9fafb;
   color: #1f2933;
   transform: rotateY(180deg);
 }
 
 .flip-card-front strong,
 .flip-card-back strong {
-  font-size: 1.1rem; /* Labels plus visibles (anciennement 0.7rem) */
+  font-size: 1.1rem;
   color: #2563eb;
   letter-spacing: 0.2rem;
   margin-bottom: 2rem;
@@ -497,7 +496,7 @@ h1 {
 
 .flip-card-front p,
 .flip-card-back p {
-  font-size: 2.2rem; /* Texte géant pour la lecture (anciennement 1.1rem) */
+  font-size: 2.2rem;
   line-height: 1.5;
   font-weight: 500;
   word-break: break-word;
@@ -521,9 +520,12 @@ h1 {
 .progress-wrapper {
   width: 100%;
   max-width: 600px;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem;
   text-align: center;
   color: #6b7280;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .progress-bar {
@@ -531,6 +533,8 @@ h1 {
   height: 10px;
   border-radius: 5px;
   margin-bottom: 0.5rem;
+  width: 100%;
+  overflow: hidden;
 }
 
 .progress-fill {
@@ -538,14 +542,18 @@ h1 {
   height: 100%;
   border-radius: 5px;
   transition: width 0.4s ease;
+  width: 0%;
+  display: block;
 }
 
-/* Zone de la carte */
 .flashcard-area {
   width: 100%;
-  max-width: 700px;
-  height: 400px;
+  max-width: 900px;
+  height: 450px;
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .label {
@@ -562,13 +570,23 @@ h1 {
   color: #9ca3af;
 }
 
-/* Boutons de contrôle */
 .controls-area {
   display: none;
   gap: 2rem;
   transform: translateY(20px);
   transition: all 0.3s ease;
   margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#controls,
+#nextControls {
+  display: none;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .controls-area.active {
@@ -592,3 +610,161 @@ h1 {
 
 .wrong { background: #fee2e2; color: #dc2626; border: 2px solid #fca5a5; }
 .correct { background: #dcfce7; color: #16a34a; border: 2px solid #86efac; }
+
+.btn-next {
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.btn-next:hover {
+  background: #1d4ed8;
+}
+
+.btn-next:active {
+  transform: scale(0.95);
+}
+
+.end-screen-wrapper {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.end-screen {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.end-screen h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #1f2933;
+}
+
+.score-box {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 15px;
+  flex: 0 1 calc(50% - 1rem);
+  min-width: 100px;
+}
+
+.score-item.correct-color {
+  background: #dcfce7;
+  border: 2px solid #86efac;
+}
+
+.score-item.wrong-color {
+  background: #fee2e2;
+  border: 2px solid #fca5a5;
+}
+
+.score-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.score-item.correct-color .score-label {
+  color: #16a34a;
+}
+
+.score-item.wrong-color .score-label {
+  color: #dc2626;
+}
+
+.score-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.score-item.correct-color .score-number {
+  color: #16a34a;
+}
+
+.score-item.wrong-color .score-number {
+  color: #dc2626;
+}
+
+.end-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn-restart,
+.btn-return {
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-restart {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-restart:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-return {
+  background: #f3f4f6;
+  color: #374151;
+  border: 2px solid #e5e7eb;
+}
+
+.btn-return:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  transform: translateY(-2px);
+}
+
+.btn-restart:active,
+.btn-return:active {
+  transform: scale(0.95);
+}
+
+.btn-next:active {
+  transform: scale(0.95);
+}

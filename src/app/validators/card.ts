@@ -1,12 +1,27 @@
 import vine from '@vinejs/vine'
 
-const cardValidator = vine.compile(
-  vine.object({
-    // la taille minimal pour le champ question est de 5 caractères
-    question: vine.string().trim().minLength(5),
+// paramèetre exceptId flexible donc pas obligatoire (création: pas obligatoire, modification: obligatoire)
+const cardValidator = (exceptId: number | null = null) => {
+  return vine.compile(
+    vine.object({
+      
+      question: vine.string().unique(async (db, value) => {
+        // cherche la question des cartes
+        const query = db.from('cards').where('question', value)
 
-    // la taille minimal pour le champ answer est de 1 caractères
-    answer: vine.string().trim().minLength(1),
-  })
-)
+        // si un id est fournis (modification) on ignore la carte en question pour eviter qu'elle s'auto bloque
+        if (exceptId) {
+          query.whereNot('id', exceptId)
+        }
+
+        // lance la requête et retourne true si aucun doublon est trouvé
+        const match = await query.first()
+        return !match
+      }),
+
+      answer: vine.string()
+    })
+  )
+}
+
 export { cardValidator }

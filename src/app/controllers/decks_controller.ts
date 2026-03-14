@@ -32,7 +32,7 @@ export default class DecksController {
    */
   async store({ request, session, response }: HttpContext) {
     // valide les entrées
-    const { description, title } = await request.validateUsing(deckValidator)
+    const { description, title } = await request.validateUsing(deckValidator())
 
     // crée le deck dans la base de données
     const deck = await Deck.create({ title, description })
@@ -72,11 +72,12 @@ export default class DecksController {
    * Handle form submission for the edit action
    */
   async update({ params, request, session, response }: HttpContext) {
-    // valide les données entrée
-    const { title, description } = await request.validateUsing(deckValidator)
-
+    
     // cherche le deck via id, si deck pas trouvé : erreur
     const deck = await Deck.findOrFail(params.id)
+
+    // valide les données entrée
+    const { title, description } = await request.validateUsing(deckValidator(deck.id))
 
     // remplace les anciennes donnée par les nouvelles
     deck.merge({
@@ -112,9 +113,11 @@ export default class DecksController {
   }
 
   async exercise({ params, view }: HttpContext) {
-    const card = await Card.findOrFail(params.id)
     const deck = await Deck.findOrFail(params.id)
 
-    return view.render('pages/decks/exercise.edge', { title: "S'exercer", deck, card })
+    const cards = await Card.query().where('deckId', params.id).orderBy('created_at', 'asc')
+
+    return view.render('pages/decks/exercise', { title: "Exercise d'un deck", deck, cards })
+
   }
 }
