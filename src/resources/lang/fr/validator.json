@@ -21,8 +21,7 @@
         "required": "Il faut donner une question"
       },
       "answer": {
-        "required": "Il faut donner une réponse",
-        "minLength": "Réponse trop courte (<10 caractères)"
+        "required": "Il faut donner une réponse"
       }
     }
   }

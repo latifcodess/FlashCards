@@ -20,7 +20,7 @@ const cardValidator = (exceptId: number | null = null) => {
         return !match
       }),
 
-      answer: vine.string().minLength(10)
+      answer: vine.string()
     })
   )
 }
