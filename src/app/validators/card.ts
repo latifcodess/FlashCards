@@ -1,3 +1,4 @@
+import { AuthManager } from '@adonisjs/auth'
 import vine from '@vinejs/vine'
 
 // paramèetre exceptId flexible donc pas obligatoire (création: pas obligatoire, modification: obligatoire)
@@ -5,7 +6,7 @@ const cardValidator = (exceptId: number | null = null) => {
   return vine.compile(
     vine.object({
       
-      question: vine.string().unique(async (db, value) => {
+      question: vine.string().bail(true).unique(async (db, value) => {
         // cherche la question des cartes
         const query = db.from('cards').where('question', value)
 
@@ -19,7 +20,7 @@ const cardValidator = (exceptId: number | null = null) => {
         return !match
       }),
 
-      answer: vine.string()
+      answer: vine.string().minLength(10)
     })
   )
 }

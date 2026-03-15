@@ -1,0 +1,29 @@
+{
+  "shared": {
+    "fields": {
+      "title": "titre",
+      "description": "description",
+      "question": "question",
+      "answer": "réponse"
+    },
+    "messages": {
+      "title.unique": "Ce deck existe déjà",
+      "question.unique": "Cette question existe déjà",
+      
+      "title": {
+        "required": "Il faut donner un titre"
+      },
+      "description": {
+        "required": "Il faut donner une description",
+        "minLength": "Description trop courte (<10 caractères)"
+      },
+      "question": {
+        "required": "Il faut donner une question"
+      },
+      "answer": {
+        "required": "Il faut donner une réponse",
+        "minLength": "Réponse trop courte (<10 caractères)"
+      }
+    }
+  }
+}

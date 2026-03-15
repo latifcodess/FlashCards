@@ -16,6 +16,7 @@ const deckValidator = (exceptId: number | null = null) => {
 
         // lance la requête et retourne true si aucun doublon est trouvé
         const match = await query.first()
+
         return !match
       }),
 
